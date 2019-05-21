@@ -2,7 +2,8 @@
  * @param {number} N
  * @return {number}
  */
-var fib = function (N) {//尾递归
+//尾递归
+var fib = function (N) {
     function fun(count, pre, cur) {
         if (count <= 0)
             return pre;
@@ -12,7 +13,8 @@ var fib = function (N) {//尾递归
     return fun(N, 0, 1);
 };
 
-var fib = function (N) {//解构赋值，迭代
+//解构赋值，迭代
+var fib = function (N) {
     let [a, b] = [0, 1];
     for (let i = 0; i < N; i++) {
         [a, b] = [b, b + a];
