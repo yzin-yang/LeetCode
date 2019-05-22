@@ -7,10 +7,11 @@ var generate = function (numRows) {
         return [];
     let pre = [1], cur;
     let result = [];
-    result.push([1]);
+    result.push(pre);
     for (let i = 2; i <= numRows; i++) {
         cur = [];
-        for (let j = 0; j < i; j++) {
+        cur.push(1);
+        for (let j = 1; j < i; j++) {
             let left = pre[j - 1] || 0;
             let right = pre[j] || 0;
             cur.push(left + right);
@@ -18,7 +19,6 @@ var generate = function (numRows) {
         result.push(cur);
         pre = cur;
     }
-    console.log(result);
     return result;
 };
 
