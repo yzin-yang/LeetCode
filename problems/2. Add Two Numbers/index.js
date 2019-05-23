@@ -25,7 +25,7 @@ var addTwoNumbers = function (l1, l2) {
             l2 = l2.next;
         }
         let sum = val1 + val2 + flag;
-        flag = parseInt(sum / 10);
+        flag = Math.floor(sum / 10);
         cur.next = new ListNode(sum % 10);//new next就可以不用两个指针
         cur = cur.next;
     }
