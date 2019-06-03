@@ -12,6 +12,13 @@ var toLowerCase = function (str) {
     }
     return newStr;
 };
+var toLowerCase = function (str) {
+    let newStr = '';
+    for (let i = 0; i < str.length; i++) {
+        newStr += String.fromCharCode(str.charCodeAt(i) | 32);
+    }
+    return newStr;
+};
 console.log(toLowerCase("Hello"));
 console.log(toLowerCase("here"));
 console.log(toLowerCase("LOVELY"));
