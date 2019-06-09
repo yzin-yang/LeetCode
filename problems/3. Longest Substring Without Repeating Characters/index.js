@@ -4,9 +4,8 @@
  */
 var lengthOfLongestSubstring = function (s) {
     let maxLen = 0;
-    let last = -1;
     let map = {};
-    for (let i = 0; i < s.length; i++) {
+    for (let i = 0, last = -1; i < s.length; i++) {
         if (map[s[i]] !== undefined)//最近重复字符位置
             last = Math.max(map[s[i]], last);
         map[s[i]] = i;
@@ -15,7 +14,6 @@ var lengthOfLongestSubstring = function (s) {
     return maxLen;
 };
 
-//时间、空间复杂度都更低
 var lengthOfLongestSubstring = function (s) {
     let maxLen = 0;
     let map = new Map();
@@ -28,8 +26,8 @@ var lengthOfLongestSubstring = function (s) {
     return maxLen;
 };
 
-lengthOfLongestSubstring('a');
-lengthOfLongestSubstring('abcd');
-lengthOfLongestSubstring('abcabcbb');
-lengthOfLongestSubstring('bbbbb');
-lengthOfLongestSubstring('pwwkew');
+console.log(lengthOfLongestSubstring('a'));
+console.log(lengthOfLongestSubstring('abcd'));
+console.log(lengthOfLongestSubstring('abcabcbb'));
+console.log(lengthOfLongestSubstring('bbbbb'));
+console.log(lengthOfLongestSubstring('pwwkew'));
