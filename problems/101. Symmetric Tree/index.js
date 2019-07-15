@@ -11,13 +11,7 @@
  */
 //递归
 var isSymmetric = function (root) {
-    if (root === null)
-        return true;
-    if (root.left === null && root.right === null)
-        return true;
-    if (root.left === null || root.right === null)
-        return false;
-    return deepSearch(root.left, root.right);
+    return deepSearch(root, root);
 };
 
 function deepSearch(leftNode, rightNode) {
@@ -25,8 +19,7 @@ function deepSearch(leftNode, rightNode) {
         return true;
     if (leftNode === null || rightNode === null)
         return false;
-    if (leftNode.val !== rightNode.val)
-        return false;
-    return deepSearch(leftNode.left, rightNode.right) &&
-        deepSearch(leftNode.right, rightNode.left);
+    return leftNode.val === rightNode.val
+        && deepSearch(leftNode.left, rightNode.right)
+        && deepSearch(leftNode.right, rightNode.left);
 }
