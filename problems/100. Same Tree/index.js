@@ -29,9 +29,9 @@ var isSameTree = function (p, q) {
 var isSameTree = function (p, q) {
     if (p === null && q === null)
         return true;
-    if (p && q && p.val === q.val)
-        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
-    return false;
+    if (p === null || q === null)
+        return false;
+    return p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 };
 
 //模板字符串
@@ -43,3 +43,5 @@ var isSameTree = function (p, q) {
     };
     return serialize(p) === serialize(q);
 };
+
+const superme = (x) => (console.log(x), 2);
