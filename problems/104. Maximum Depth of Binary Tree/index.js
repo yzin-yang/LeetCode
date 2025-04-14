@@ -19,6 +19,7 @@ var maxDepth = function (root) {
 //迭代
 var maxDepth = function (root) {
     if (root === null)
+
         return 0;
     let stack = [];
     let depth = 0;
