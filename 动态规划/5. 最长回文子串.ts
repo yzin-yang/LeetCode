@@ -35,4 +35,32 @@ function longestPalindrome(s: string): string {
     return s.substring(begin, begin + maxLen);
 };
 
+// 中心扩展算法
+function longestPalindrome1(s: string): string {
+    const n = s.length;
+    if (n <= 1) {
+        return s;
+    }
+    const findStr = (left: number, right: number) => {
+        while (left >= 0 && right < n && s[left] === s[right]) {
+            left--;
+            right++;
+        }
+        return s.substring(left+1, right)
+    }
+    let str = '';
+    for (let i = 0; i < n; i++) {
+        const s1 = findStr(i, i);
+        const s2 = findStr(i, i + 1);
+        if (s1.length > str.length) {
+            str = s1;
+        }
+        if (s2.length > str.length) {
+            str = s2;
+        }
+    }
+
+    return str;
+};
+
 console.log(longestPalindrome('bcaacb'))
