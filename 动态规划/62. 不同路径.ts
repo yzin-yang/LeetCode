@@ -21,4 +21,4 @@ function uniquePaths(m: number, n: number): number {
     return dp[n - 1]
 };
 
-console.log(uniquePaths(3,3))
+console.log(uniquePaths(3, 3))
