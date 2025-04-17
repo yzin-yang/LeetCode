@@ -6,8 +6,12 @@ function longestPalindromeSubseq(s: string): number {
     if (n < 2) {
         return n;
     }
-    const dp: number[][] = new Array(n).fill(0).map(() => new Array(n).fill(0));
 
+    const dp: number[][] = new Array(n);
+    for (let i = 0; i < n; i++) {
+        dp[i] = new Array(n).fill(0);
+    }
+    
     for (let i = n - 1; 0 <= i; i--) {
         dp[i][i] = 1;
         for (let j = i + 1; j < n; j++) {
