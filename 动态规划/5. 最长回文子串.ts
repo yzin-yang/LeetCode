@@ -3,29 +3,19 @@
 // dp[x][x] = true
 function longestPalindrome(s: string): string {
     const n = s.length;
-    if (n <= 1) {
-        return s;
-    }
-    const dp: boolean[][] = Array.from({ length: n }, () => Array.from({ length: n }));
+    // 用例中长度为1较少，加判断反而增加耗时
+    // if (n <= 1) {
+    //     return s;
+    // }
+    const dp: boolean[][] = Array.from(new Array(n),() => new Array(n).fill(0));
     let maxLen = 1;
     let begin = 0;
-    // i === j
-    for (let i = 0; i < n; i++) {
+
+    for (let i = n - 1; 0 <= i; i--) {
         dp[i][i] = true;
-    }
-    // j - i === 1
-    for (let i = 0; i < n - 1; i++) {
-        dp[i][i + 1] = s[i] === s[i + 1];
-        if (dp[i][i + 1] && maxLen < 2) {
-            maxLen = 2;
-            begin = i;
-        }
-    }
-    // j - i > 1
-    for (let i = n -2; 0 <= i; i--) {
-        for (let j = i + 2; j < n; j++) {
-            dp[i][j] = dp[i + 1][j - 1] && s[i] === s[j];
-            if (dp[i][j] && maxLen < j - i + 1) {
+        for (let j = i + 1; j < n; j++) {
+            dp[i][j] = s[i] === s[j] && (j - i < 2 || dp[i + 1][j - 1]);
+            if (dp[i][j] && maxLen  < j - i + 1) {
                 maxLen = j - i + 1;
                 begin = i;
             }
@@ -46,7 +36,7 @@ function longestPalindrome1(s: string): string {
             left--;
             right++;
         }
-        return s.substring(left+1, right)
+        return s.substring(left + 1, right)
     }
     let str = '';
     for (let i = 0; i < n; i++) {
