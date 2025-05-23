@@ -3,9 +3,6 @@ const check = (arr: string[], n: number, row: number, col: number) => {
         if (i === row) {
             continue;
         }
-        if (arr[i][col] === 'Q') {
-            return false;
-        }
         if (i !== col && arr[row][i] === 'Q') {
             return false;
         }
