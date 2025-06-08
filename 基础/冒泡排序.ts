@@ -11,4 +11,4 @@ function bubbleSort(nums: number[]) {
     return nums;
 }
 
-console.log(bubbleSort([2, 3, 1]));
+console.log(bubbleSort([5, 2, 4, 6, 1, 3]));
