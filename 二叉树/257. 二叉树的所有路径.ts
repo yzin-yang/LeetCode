@@ -18,6 +18,8 @@ function binaryTreePaths(root: TreeNode | null): string[] {
         path.push(node.val);
         if (node.left === null && node.right === null) {
             res.push(path.join('->'));
+            path.pop();
+            return;
         }
         recur(node.left, path);
         recur(node.right, path);
