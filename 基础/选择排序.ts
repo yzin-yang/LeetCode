@@ -14,4 +14,4 @@ function selectionSort(nums: number[]) {
     return nums;
 }
 
-console.log(selectionSort([2, 3, 1]));
+console.log(selectionSort([5, 2, 4, 6, 1, 3]));
